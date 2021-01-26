@@ -50,12 +50,20 @@ namespace TourismMVCWebsite.Controllers
 
         public ActionResult Packages()
         {
-            return View();
+
+            return View(db.Packages.ToList());
         }
 
-        public ActionResult Booking()
+        public ActionResult Booking(int? id)
         {
-            return View();
+            var packages = db.Packages.Find(id);
+            Session["imgPath"] = packages.Image;
+            if (packages == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(packages);
         }
     }
 }
