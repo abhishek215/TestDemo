@@ -88,16 +88,19 @@
 
                     </ul>
                 </div>
-                <div class="d-lg-block d-none nav-item">
+               <div class="d-lg-block d-none nav-item">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Signup">Signup</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">Login</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a>Hello @User.Identity.Name</a></li>
 
+                            <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
 
                     </ul>
                 </div>
@@ -133,184 +136,7 @@
     </section>
 
     <!--packages start-->
-    <section id="pack" class="packages">
-        <div class="container">
-            <div class="gallary-header text-center">
-                <h2>
-                    Special Packages
-                </h2>
-                <p>
-                    Come and Enjoy your Holidays !!!!
-                </p>
-            </div><!--/.gallery-header-->
-            <div class="packages-content">
-                <div class="row">
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-package-item">
-                            <div class="single-package-item-txt">
-                                <img src="~/Content/assets/images/1571999040_kerala.jpg" alt="package-place">
-                                <h3>Kerla <span class="pull-right">₹15000</span></h3>
-                                <div class="packages-para">
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i> 5 daays 6 nights
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  5 star accomodation
-                                    </p>
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i>  transportation
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  food facilities
-                                    </p>
-                                </div><!--/.packages-para-->
-                                <div class="packages-review">
-                                    <p>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>2544 review</span>
-                                    </p>
-                                </div><!--/.packages-review-->
-                                <div class="about-btn">
-                                    <a href="/Home/Booking" data-fancybox class="about-view packages-btn">
-                                        book now
-                                    </a>
-                                </div><!--/.about-btn-->
-                            </div><!--/.single-package-item-txt-->
-                        </div><!--/.single-package-item-->
-
-                    </div><!--/.col-->
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-package-item">
-                            <div class="single-package-item-txt">
-                                <img src="~/Content/assets/images/213333495goa2.png" alt="package-place">
-                                <h3>Goa <span class="pull-right">₹16000</span></h3>
-                                <div class="packages-para">
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i> 5 daays 6 nights
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  5 star accomodation
-                                    </p>
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i>  transportation
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  food facilities
-                                    </p>
-                                </div><!--/.packages-para-->
-                                <div class="packages-review">
-                                    <p>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>2544 review</span>
-                                    </p>
-                                </div><!--/.packages-review-->
-                                <div class="about-btn">
-                                    <a href="/Home/Booking" data-fancybox class="about-view packages-btn">
-                                        book now
-                                    </a>
-                                </div><!--/.about-btn-->
-                            </div><!--/.single-package-item-txt-->
-                        </div><!--/.single-package-item-->
-
-                    </div><!--/.col-->
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-package-item">
-                            <div class="single-package-item-txt">
-                                <img src="~/Content/assets/images/211133001Jaipur.jpg" alt="package-place">
-                                <h3>Rajasthan <span class="pull-right">₹16000</span></h3>
-                                <div class="packages-para">
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i> 5 daays 6 nights
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  5 star accomodation
-                                    </p>
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i>  transportation
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  food facilities
-                                    </p>
-                                </div><!--/.packages-para-->
-                                <div class="packages-review">
-                                    <p>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>2544 review</span>
-                                    </p>
-                                </div><!--/.packages-review-->
-                                <div class="about-btn">
-                                    <a href="/Home/Booking" data-fancybox class="about-view packages-btn">
-                                        book now
-                                    </a>
-                                </div><!--/.about-btn-->
-                            </div><!--/.single-package-item-txt-->
-                        </div><!--/.single-package-item-->
-
-                    </div><!--/.col-->
-
-                    <div class="col-md-4 col-sm-6">
-                        <div class="single-package-item">
-                            <div class="single-package-item-txt">
-                                <img src="~/Content/assets/images/kashmir.jpg" alt="package-place">
-                                <h3>Jammu & Kashmir <span class="pull-right">₹19000</span></h3>
-                                <div class="packages-para">
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i> 5 daays 6 nights
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  5 star accomodation
-                                    </p>
-                                    <p>
-                                        <span>
-                                            <i class="fa fa-angle-right"></i>  transportation
-                                        </span>
-                                        <i class="fa fa-angle-right"></i>  food facilities
-                                    </p>
-                                </div><!--/.packages-para-->
-                                <div class="packages-review">
-                                    <p>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <span>2544 review</span>
-                                    </p>
-                                </div><!--/.packages-review-->
-                                <div class="about-btn">
-                                    <a href="/Home/Booking" data-fancybox class="about-view packages-btn">
-                                        book now
-                                    </a>
-                                </div><!--/.about-btn-->
-                            </div><!--/.single-package-item-txt-->
-                        </div><!--/.single-package-item-->
-
-                    </div><!--/.col-->
-
-
-
-
-
-                </div><!--/.row-->
-            </div><!--/.packages-content-->
-        </div><!--/.container-->
-
-    </section><!--/.packages-->
+    <!--/.packages-->
     <div>
         @RenderBody()
     </div>

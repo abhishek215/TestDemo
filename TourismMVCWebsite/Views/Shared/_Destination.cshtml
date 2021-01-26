@@ -71,13 +71,16 @@
                 <div class="d-lg-block d-none nav-item">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Signup">Signup</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">Login</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a>Hello @User.Identity.Name</a></li>
 
+                            <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
 
                     </ul>
                 </div>
@@ -139,7 +142,7 @@
                     <p>Winters (October to March) is an ideal time to pay a visit to Rajasthan.</p>
 
                     <p class="pt-4">
-                        <a href="/Home/Packages" data-fancybox class="btn-play d-flex">
+                        <a href="/User/Packages" data-fancybox class="btn-play d-flex">
                             <span class="icon align-self-center mr-3"><span class="fa fa-play"></span></span>
                             <span class="text align-self-center">Book Here</span>
                         </a>

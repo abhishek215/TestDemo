@@ -56,16 +56,19 @@
 
                     </ul>
                 </div>
-                <div class="d-lg-block d-none nav-item">
+                 <div class="d-lg-block d-none nav-item">
                     <ul class="nav navbar-nav navbar-right">
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Signup">Signup</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/Account/Login">Login</a>
-                        </li>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li><a>Hello @User.Identity.Name</a></li>
 
+                            <li>@Html.ActionLink("Logout", "Logout", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Login", "Login", "Account", new { area = "" }, new { @class = "nav-link nav-item" })</li>
+                        }
 
                     </ul>
                 </div>
@@ -127,7 +130,7 @@
                     <p>Goa has a tropical climate and can be visited all throughout the year with each season offering an amazing experience to the travellers. Summers in Goa are more popular with families and kids whereas the destination in monsoon let the tourist indulge in some of the water activities. Goa in winter season experiences cool and comfortable weather making it a perfect time for sunbathing.</p>
 
                     <p class="pt-4">
-                        <a href="/Home/Packages" data-fancybox class="btn-play d-flex">
+                        <a href="/User/Packages" data-fancybox class="btn-play d-flex">
                             <span class="icon align-self-center mr-3"><span class="fa fa-play"></span></span>
                             <span class="text align-self-center">Book Here</span>
                         </a>
